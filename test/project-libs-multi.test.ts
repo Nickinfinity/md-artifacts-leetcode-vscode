@@ -18,17 +18,17 @@ suite('project libs — one install per ecosystem', () => {
 
 	let cacheRoot: string;
 	let runDir: string;
-	const previous = process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+	const previous = process.env.MD_LEETCODE_LIBCACHE;
 
 	setup(() => {
 		cacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'multilibs-'));
 		runDir = fs.mkdtempSync(path.join(os.tmpdir(), 'multirun-'));
-		process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+		process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 	});
 
 	teardown(() => {
-		if (previous === undefined) { delete process.env.OBSIDIAN_LEETCODE_LIBCACHE; }
-		else { process.env.OBSIDIAN_LEETCODE_LIBCACHE = previous; }
+		if (previous === undefined) { delete process.env.MD_LEETCODE_LIBCACHE; }
+		else { process.env.MD_LEETCODE_LIBCACHE = previous; }
 		fs.rmSync(cacheRoot, { recursive: true, force: true });
 		fs.rmSync(runDir, { recursive: true, force: true });
 	});

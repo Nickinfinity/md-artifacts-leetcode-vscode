@@ -25,16 +25,16 @@ suite('pnpm installer', () => {
 	// into a developer's real one, and a warm marker left behind would make a
 	// later test see a cache hit it did not create.
 	let cacheRoot: string;
-	const previous = process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+	const previous = process.env.MD_LEETCODE_LIBCACHE;
 
 	setup(() => {
 		cacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'libcache-'));
-		process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+		process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 	});
 
 	teardown(() => {
-		if (previous === undefined) { delete process.env.OBSIDIAN_LEETCODE_LIBCACHE; }
-		else { process.env.OBSIDIAN_LEETCODE_LIBCACHE = previous; }
+		if (previous === undefined) { delete process.env.MD_LEETCODE_LIBCACHE; }
+		else { process.env.MD_LEETCODE_LIBCACHE = previous; }
 		fs.rmSync(cacheRoot, { recursive: true, force: true });
 	});
 

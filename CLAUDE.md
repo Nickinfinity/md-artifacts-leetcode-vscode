@@ -121,8 +121,8 @@ recompute cross-check, and cheap enough to run per exercise.
 
 ## What This Extension Does
 
-**Obsidian Artifacts: AI LeetCode Trainer** is a standalone, LeetCode-only sibling of the
-core *Obsidian Artifacts: AI Snippets & Tools* extension (Jira **VSX-35** / **VSX-64…68**).
+**MD Artifacts: AI LeetCode Trainer** is a standalone, LeetCode-only sibling of the
+core *MD Artifacts: AI Snippets & Tools* extension (Jira **VSX-35** / **VSX-64…68**).
 It turns `artifactType: leetcode` notes in an Obsidian vault into runnable coding challenges: parse
 → generate boilerplate + a per-language test harness → run solutions against JSON test cases
 via local runtimes (Java / Python / JavaScript / Rust / TypeScript) → show pass/fail in a
@@ -173,15 +173,15 @@ concern, not impurity); `*.helpers.ts` = its pure-function sibling.
 
 ### Entry point
 
-[src/extension.ts](src/extension.ts) — `activate()` registers `obsidian-leetcode.settings`,
+[src/extension.ts](src/extension.ts) — `activate()` registers `md-leetcode.settings`,
 `.create`, `.open`, `.endChallenge`, runs `migrateLegacyVaultPath()`, then awaits
 `refreshVaultContext(context)` so menus reflect vault state before the first interaction,
 and auto-opens Settings when no vault path is stored. There is **no**
 `onDidChangeConfiguration` listener — the vault path is not configuration; the settings
 panel calls `refreshVaultContext(context)` directly after saving.
 
-All four commands share the `Obsidian Artifacts:` palette category; the first three also
-appear in an **Obsidian Artifacts** `submenu` in `editor/context`. `.create` is a
+All four commands share the `MD Artifacts:` palette category; the first three also
+appear in an **MD Artifacts** `submenu` in `editor/context`. `.create` is a
 placeholder ([createExercise.command.ts](src/commands/createExercise.command.ts));
 `.endChallenge` is palette-only and is the status-bar clock's `command`, so clicking the
 clock ends the run and restores the editor settings.
@@ -193,8 +193,8 @@ clock ends the run and restores the editor settings.
   macOS/Linux, and the boolean stays unsynced beside it for consistency.
 - [vault-path.store.ts](src/services/vault-path.store.ts) — `getVaultPath()` / `setVaultPath()`
   / `getUseVaultRoot()` / `setUseVaultRoot()` / `migrateLegacyVaultPath()` (one-time: copies any
-  legacy synced `obsidianLeetcodeTrainer.vaultPath` into `globalState`, then clears the synced
-  setting). The `obsidianLeetcodeTrainer.*` configuration contribution is gone from
+  legacy synced `mdLeetcodeTrainer.vaultPath` into `globalState`, then clears the synced
+  setting). The `mdLeetcodeTrainer.*` configuration contribution is gone from
   `package.json`. `getExercisesSubdir(context)` also lives here — the thin, `vscode`-coupled
   wrapper both `refreshVaultContext` and the picker call to resolve where exercises live,
   never re-hardcoding `'LeetCode'`.
@@ -202,7 +202,7 @@ clock ends the run and restores the editor settings.
   `false` → `LEETCODE_DIR`, `true` → `''` (vault root, no subfolder). The one unit-tested
   authority `getExercisesSubdir` wraps.
 - [context.service.ts](src/services/context.service.ts) — `refreshVaultContext(context)` sets
-  `obsidian-leetcode.vaultConfigured` (the single `when` gate in `package.json`) and, only when
+  `md-leetcode.vaultConfigured` (the single `when` gate in `package.json`) and, only when
   `getExercisesSubdir` resolves to a non-empty subdir, **create-only** ensures it exists (never
   deletes — no data loss). `useVaultRoot: true` creates and deletes nothing — flipping the
   toggle only changes where the picker looks.
@@ -1265,6 +1265,6 @@ check. If the extension is ever absent, say so rather than reporting a clean pas
 
 ## Related
 
-Core repo *Obsidian Artifacts: AI Snippets & Tools* (Jira **VSX-5**); this extension is Jira
+Core repo *MD Artifacts: AI Snippets & Tools* (Jira **VSX-5**); this extension is Jira
 epic **VSX-35**, migration stories **VSX-64…68**. Phase 3 (future): an MCP server exposing
 LeetCode artifacts to the local IDE AI agent for solution evaluation, hints, and practice modes.

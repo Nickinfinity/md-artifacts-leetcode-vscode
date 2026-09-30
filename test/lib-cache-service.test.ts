@@ -17,16 +17,16 @@ import { mavenInstaller } from '../src/services/libs/maven.installer.js';
 suite('lib cache service', () => {
 
 	let cacheRoot: string;
-	const previous = process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+	const previous = process.env.MD_LEETCODE_LIBCACHE;
 
 	setup(() => {
 		cacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'libenv-'));
-		process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+		process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 	});
 
 	teardown(() => {
-		if (previous === undefined) { delete process.env.OBSIDIAN_LEETCODE_LIBCACHE; }
-		else { process.env.OBSIDIAN_LEETCODE_LIBCACHE = previous; }
+		if (previous === undefined) { delete process.env.MD_LEETCODE_LIBCACHE; }
+		else { process.env.MD_LEETCODE_LIBCACHE = previous; }
 		fs.rmSync(cacheRoot, { recursive: true, force: true });
 	});
 
@@ -120,21 +120,21 @@ suite('lib cache service', () => {
 		});
 
 		test('resolves under the OS temp dir — no vscode context involved', () => {
-			delete process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+			delete process.env.MD_LEETCODE_LIBCACHE;
 			try {
 				assert.ok(libEnvDir('pnpm', ['react@^19.0.0']).startsWith(os.tmpdir()));
 			} finally {
-				process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+				process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 			}
 		});
 
 		test('never sits inside the repository', () => {
-			delete process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+			delete process.env.MD_LEETCODE_LIBCACHE;
 			try {
 				const repoRoot = path.resolve(__dirname, '..', '..');
 				assert.ok(!libEnvDir('pnpm', ['react@^19.0.0']).startsWith(repoRoot));
 			} finally {
-				process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+				process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 			}
 		});
 	});

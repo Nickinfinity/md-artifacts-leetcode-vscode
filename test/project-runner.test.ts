@@ -366,16 +366,16 @@ suite('project runner', () => {
 		}
 
 		let cacheRoot: string;
-		const previousCache = process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+		const previousCache = process.env.MD_LEETCODE_LIBCACHE;
 
 		setup(() => {
 			cacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'libcache-'));
-			process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+			process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 		});
 
 		teardown(() => {
-			if (previousCache === undefined) { delete process.env.OBSIDIAN_LEETCODE_LIBCACHE; }
-			else { process.env.OBSIDIAN_LEETCODE_LIBCACHE = previousCache; }
+			if (previousCache === undefined) { delete process.env.MD_LEETCODE_LIBCACHE; }
+			else { process.env.MD_LEETCODE_LIBCACHE = previousCache; }
 			fs.rmSync(cacheRoot, { recursive: true, force: true });
 		});
 
@@ -610,16 +610,16 @@ suite('project runner', () => {
 	suite('resolveProgramLibDir — the program suite\'s missing lib resolver (C24)', () => {
 
 		let cacheRoot: string;
-		const previousCache = process.env.OBSIDIAN_LEETCODE_LIBCACHE;
+		const previousCache = process.env.MD_LEETCODE_LIBCACHE;
 
 		setup(() => {
 			cacheRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'proglibs-'));
-			process.env.OBSIDIAN_LEETCODE_LIBCACHE = cacheRoot;
+			process.env.MD_LEETCODE_LIBCACHE = cacheRoot;
 		});
 
 		teardown(() => {
-			if (previousCache === undefined) { delete process.env.OBSIDIAN_LEETCODE_LIBCACHE; }
-			else { process.env.OBSIDIAN_LEETCODE_LIBCACHE = previousCache; }
+			if (previousCache === undefined) { delete process.env.MD_LEETCODE_LIBCACHE; }
+			else { process.env.MD_LEETCODE_LIBCACHE = previousCache; }
 			fs.rmSync(cacheRoot, { recursive: true, force: true });
 		});
 

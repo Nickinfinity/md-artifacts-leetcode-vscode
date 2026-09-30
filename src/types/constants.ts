@@ -360,7 +360,7 @@ export const LEETCODE_DIR = 'LeetCode';
 export const TICK_MS = 1000;
 
 /** Settings namespace retained only for one-time migration of the legacy synced value. */
-export const CONFIG_NS = 'obsidianLeetcodeTrainer';
+export const CONFIG_NS = 'mdLeetcodeTrainer';
 
 /** `globalState` key holding the vault path. Machine-local — never registered for Settings Sync. */
 export const VAULT_PATH_KEY = 'vaultPath';
@@ -372,10 +372,10 @@ export const VAULT_PATH_KEY = 'vaultPath';
 export const USE_VAULT_ROOT_KEY = 'useVaultRoot';
 
 /** Context key used by `package.json` `when` clauses to gate the open command. */
-export const VAULT_CONFIGURED_KEY = 'obsidian-leetcode.vaultConfigured';
+export const VAULT_CONFIGURED_KEY = 'md-leetcode.vaultConfigured';
 
 /** Command that tears the active challenge down and restores editor settings. */
-export const END_CHALLENGE_COMMAND = 'obsidian-leetcode.endChallenge';
+export const END_CHALLENGE_COMMAND = 'md-leetcode.endChallenge';
 
 /** Placeholder dropped where the solver is expected to write their answer. */
 export const SOLUTION_HINT = 'solution here';

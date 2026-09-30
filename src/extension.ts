@@ -10,8 +10,8 @@ import { LeetCodeViewProvider } from './ui/views/leetcodeView.provider.js';
 /**
  * Called by VS Code when the extension is activated.
  *
- * Registers the settings command, the sidebar `obsidian-leetcode.view`
- * webview view, and the single `obsidian-leetcode.open` command that drives
+ * Registers the settings command, the sidebar `md-leetcode.view`
+ * webview view, and the single `md-leetcode.open` command that drives
  * it, refreshes the `vaultConfigured` context key, auto-opens settings on
  * first use, and watches for configuration changes.
  *
@@ -28,10 +28,10 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 	const viewProvider = new LeetCodeViewProvider(context);
 
 	context.subscriptions.push(
-		vscode.window.registerWebviewViewProvider('obsidian-leetcode.view', viewProvider, {
+		vscode.window.registerWebviewViewProvider('md-leetcode.view', viewProvider, {
 			webviewOptions: { retainContextWhenHidden: true },
 		}),
-		vscode.commands.registerCommand('obsidian-leetcode.open', () => {
+		vscode.commands.registerCommand('md-leetcode.open', () => {
 			void viewProvider.openPicker();
 		}),
 		vscode.commands.registerCommand(END_CHALLENGE_COMMAND, () => endChallenge()),
@@ -44,7 +44,7 @@ export async function activate(context: vscode.ExtensionContext): Promise<void> 
 	await refreshVaultContext(context);
 
 	if (!getVaultPath(context)) {
-		vscode.commands.executeCommand('obsidian-leetcode.settings');
+		vscode.commands.executeCommand('md-leetcode.settings');
 	}
 }
 

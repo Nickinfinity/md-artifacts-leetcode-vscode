@@ -15,12 +15,12 @@ const execFileAsync = promisify(execFile);
 
 /**
  * Root of the shared cache, resolved **per call** rather than at module load so
- * the `OBSIDIAN_LEETCODE_LIBCACHE` override works whenever it is set — including
+ * the `MD_LEETCODE_LIBCACHE` override works whenever it is set — including
  * from a test that must not write into a developer's real cache.
  */
 function cacheRoot(): string {
-	return process.env.OBSIDIAN_LEETCODE_LIBCACHE
-		?? path.join(os.tmpdir(), 'obsidian-leetcode-libcache');
+	return process.env.MD_LEETCODE_LIBCACHE
+		?? path.join(os.tmpdir(), 'md-leetcode-libcache');
 }
 
 /** Marker written once an install completes — its presence means "warm". */
@@ -83,7 +83,7 @@ export interface LibEnvOptions {
  * @returns Absolute cache directory path; never inside the repository.
  *
  * @example
- * libEnvDir('pip', ['numpy>=2']); // → '/var/folders/…/obsidian-leetcode-libcache/pip-9f2c…'
+ * libEnvDir('pip', ['numpy>=2']); // → '/var/folders/…/md-leetcode-libcache/pip-9f2c…'
  */
 export function libEnvDir(ecosystem: LibEcosystem, specs: readonly string[]): string {
 	const key = createHash('sha256')
@@ -110,7 +110,7 @@ export function libEnvDir(ecosystem: LibEcosystem, specs: readonly string[]): st
  *
  * @example
  * await ensureLibEnv('pip', ['numpy>=2']);
- * // → { ok: true, dir: '…/obsidian-leetcode-libcache/pip-9f2c…' }
+ * // → { ok: true, dir: '…/md-leetcode-libcache/pip-9f2c…' }
  */
 export async function ensureLibEnv(
 	ecosystem: LibEcosystem, specs: readonly string[], options: LibEnvOptions = {},

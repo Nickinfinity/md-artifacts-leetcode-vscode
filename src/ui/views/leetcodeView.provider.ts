@@ -56,7 +56,7 @@ interface WebviewMsg {
 }
 
 /**
- * Drives the `obsidian-leetcode.view` Activity-Bar sidebar view.
+ * Drives the `md-leetcode.view` Activity-Bar sidebar view.
  *
  * Owns the single live `WebviewView` plus the current exercise session
  * (`PanelCtx`), and renders one of two screens into it: an empty state with an
@@ -76,7 +76,7 @@ interface WebviewMsg {
  * @example
  * const provider = new LeetCodeViewProvider(context);
  * context.subscriptions.push(
- *   vscode.window.registerWebviewViewProvider('obsidian-leetcode.view', provider),
+ *   vscode.window.registerWebviewViewProvider('md-leetcode.view', provider),
  * );
  */
 export class LeetCodeViewProvider implements vscode.WebviewViewProvider {
@@ -129,7 +129,7 @@ export class LeetCodeViewProvider implements vscode.WebviewViewProvider {
 	 * Runs the exercise picker and, on a selection, renders the result into the
 	 * view.
 	 *
-	 * The single entry point for "open an exercise" — the `obsidian-leetcode.open`
+	 * The single entry point for "open an exercise" — the `md-leetcode.open`
 	 * command (palette and view-title button share it) and the empty state's own
 	 * button both call this, so the two triggers can never drift out of sync.
 	 *
