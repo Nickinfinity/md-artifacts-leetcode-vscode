@@ -175,7 +175,7 @@ export function renderBigOEstimateHtml(estimate: BigOEstimate): string {
  *
  * A single "Open exercise" button posts `{ command: 'open' }`, which
  * `LeetCodeViewProvider` handles by running the same picker the view-title
- * button and the `obsidian-leetcode.open` command use.
+ * button and the `md-leetcode.open` command use.
  *
  * @param cssUris   - Webview URIs for the stylesheets to link.
  * @param cspSource - Webview CSP source token.

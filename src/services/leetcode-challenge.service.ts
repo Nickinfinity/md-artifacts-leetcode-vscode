@@ -173,7 +173,7 @@ export async function startChallenge(
  * boot code ever reached its own `finally`.
  *
  * Safe to call when nothing is running — used both by the explicit
- * `obsidian-leetcode.endChallenge` command, by the preview panel's dispose
+ * `md-leetcode.endChallenge` command, by the preview panel's dispose
  * handler, and by `deactivate()`, which is what gives an orphaned server the
  * same free cleanup the practice-mode snapshot already gets.
  *

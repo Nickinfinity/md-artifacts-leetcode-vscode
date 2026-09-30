@@ -23,7 +23,7 @@ import { getUseVaultRoot, getVaultPath, setUseVaultRoot, setVaultPath } from '..
 export function openSettingsPanel(context: vscode.ExtensionContext): void {
 	const panel = vscode.window.createWebviewPanel(
 		'settings',
-		'Obsidian Artifacts: AI LeetCode Trainer - Settings',
+		'MD Artifacts: AI LeetCode Trainer - Settings',
 		vscode.ViewColumn.One,
 		{
 			enableScripts: true,
@@ -107,13 +107,13 @@ function getWebviewContent(webview: vscode.Webview, extensionUri: vscode.Uri): s
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'nonce-${nonce}'; style-src ${webview.cspSource};">
   <link rel="stylesheet" href="${styleUri}">
-  <title>Obsidian Artifacts: AI LeetCode Trainer - CONFIG</title>
+  <title>MD Artifacts: AI LeetCode Trainer - CONFIG</title>
 </head>
 <body class="settings-body">
   <div id="webviewContent">
     <div class="logo-row">
       <span class="logo-icon">🧠</span>
-      <h1>Obsidian Artifacts: AI LeetCode Trainer</h1>
+      <h1>MD Artifacts: AI LeetCode Trainer</h1>
     </div>
     <p class="tagline">Run and practice LeetCode problems straight from your Obsidian vault</p>
 

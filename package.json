@@ -1,6 +1,6 @@
 {
-  "name": "obsidian-artifacts-leetcode-vscode",
-  "displayName": "Obsidian Artifacts: AI LeetCode Trainer",
+  "name": "md-artifacts-leetcode-vscode",
+  "displayName": "MD Artifacts: AI LeetCode Trainer",
   "description": "Turn type: leetcode notes in your Obsidian vault into runnable coding challenges with auto-generated boilerplate, a per-language test harness, and a child-process test runner.",
   "version": "0.0.1",
   "engines": {
@@ -25,46 +25,46 @@
   "contributes": {
     "commands": [
       {
-        "command": "obsidian-leetcode.settings",
-        "category": "Obsidian Artifacts",
+        "command": "md-leetcode.settings",
+        "category": "MD Artifacts",
         "title": "Settings"
       },
       {
-        "command": "obsidian-leetcode.create",
-        "category": "Obsidian Artifacts",
+        "command": "md-leetcode.create",
+        "category": "MD Artifacts",
         "title": "Create LeetCode Exercise"
       },
       {
-        "command": "obsidian-leetcode.open",
-        "category": "Obsidian Artifacts",
+        "command": "md-leetcode.open",
+        "category": "MD Artifacts",
         "title": "Open LeetCode Exercise",
         "icon": "$(beaker)"
       },
       {
-        "command": "obsidian-leetcode.endChallenge",
-        "category": "Obsidian Artifacts",
+        "command": "md-leetcode.endChallenge",
+        "category": "MD Artifacts",
         "title": "End LeetCode Challenge"
       }
     ],
     "submenus": [
       {
-        "id": "obsidian-leetcode.contextMenu",
-        "label": "Obsidian Artifacts"
+        "id": "md-leetcode.contextMenu",
+        "label": "MD Artifacts"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "obsidian-leetcode",
-          "title": "Obsidian Artifacts: LeetCode",
+          "id": "md-leetcode",
+          "title": "MD Artifacts: LeetCode",
           "icon": "resources/leetcode.svg"
         }
       ]
     },
     "views": {
-      "obsidian-leetcode": [
+      "md-leetcode": [
         {
-          "id": "obsidian-leetcode.view",
+          "id": "md-leetcode.view",
           "name": "LeetCode",
           "type": "webview"
         }
@@ -73,30 +73,30 @@
     "menus": {
       "editor/context": [
         {
-          "submenu": "obsidian-leetcode.contextMenu",
-          "group": "obsidian@1"
+          "submenu": "md-leetcode.contextMenu",
+          "group": "mda@1"
         }
       ],
-      "obsidian-leetcode.contextMenu": [
+      "md-leetcode.contextMenu": [
         {
-          "command": "obsidian-leetcode.settings",
-          "group": "obsidian@1"
+          "command": "md-leetcode.settings",
+          "group": "mda@1"
         },
         {
-          "command": "obsidian-leetcode.create",
-          "group": "obsidian@2"
+          "command": "md-leetcode.create",
+          "group": "mda@2"
         }
       ],
       "commandPalette": [
         {
-          "command": "obsidian-leetcode.open",
-          "when": "obsidian-leetcode.vaultConfigured"
+          "command": "md-leetcode.open",
+          "when": "md-leetcode.vaultConfigured"
         }
       ],
       "view/title": [
         {
-          "command": "obsidian-leetcode.open",
-          "when": "view == obsidian-leetcode.view && obsidian-leetcode.vaultConfigured",
+          "command": "md-leetcode.open",
+          "when": "view == md-leetcode.view && md-leetcode.vaultConfigured",
           "group": "navigation"
         }
       ]

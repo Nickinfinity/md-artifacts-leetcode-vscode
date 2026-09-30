@@ -93,7 +93,7 @@ export function getExercisesSubdir(context: vscode.ExtensionContext): string {
 
 /**
  * One-time migration: if the legacy synced setting
- * `obsidianLeetcodeTrainer.vaultPath` still holds a value and `globalState`
+ * `mdLeetcodeTrainer.vaultPath` still holds a value and `globalState`
  * has none, copy it into `globalState` and then clear the synced setting so
  * the (possibly wrong-OS) path stops propagating via Settings Sync.
  *

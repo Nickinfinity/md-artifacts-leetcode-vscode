@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 /**
- * Registers the `obsidian-leetcode.create` command.
+ * Registers the `md-leetcode.create` command.
  *
  * Placeholder: exercise scaffolding (prompt → write `type: leetcode` `.md`
  * into the vault `LeetCode/` directory → open) is a planned feature. The
@@ -15,7 +15,7 @@ import * as vscode from 'vscode';
  * registerCreateExerciseCommand(context);
  */
 export function registerCreateExerciseCommand(context: vscode.ExtensionContext): void {
-	const disposable = vscode.commands.registerCommand('obsidian-leetcode.create', () => {
+	const disposable = vscode.commands.registerCommand('md-leetcode.create', () => {
 		void vscode.window.showInformationMessage(
 			'Create LeetCode Exercise is coming soon — exercise scaffolding is not implemented yet.',
 		);

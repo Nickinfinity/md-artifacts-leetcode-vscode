@@ -1,11 +1,14 @@
-# Obsidian Artifacts: AI LeetCode Trainer
+# MD Artifacts: AI LeetCode Trainer
 
 A VS Code extension that turns `type: leetcode` notes in your Obsidian vault
 into runnable coding challenges — starter code in the language you pick, an
 editor locked down to keep the practice honest, a countdown, and a batch test
 runner, all driven from a dedicated preview panel.
 
-Companion to **Obsidian Artifacts: AI Snippets & Tools** (the core extension).
+Designed for use with Obsidian: exercises are Obsidian-compatible Markdown notes,
+and an **Obsidian vault** is the storage.
+
+Companion to **MD Artifacts: AI Snippets & Tools** (the core extension).
 This one is standalone and LeetCode-only.
 
 ## Getting started
@@ -19,7 +22,7 @@ Press **F5** to launch the Extension Development Host.
 
 On first run the settings panel opens — point it at your Obsidian vault root
 (the folder containing `.obsidian/`). A `LeetCode/` directory is created
-automatically. Open a problem via `Obsidian Artifacts: Open LeetCode Exercise`
+automatically. Open a problem via `MD Artifacts: Open LeetCode Exercise`
 or the editor context menu.
 
 ## The loop
@@ -36,7 +39,7 @@ or the editor context menu.
    `status: attempted`. Either way the challenge ends and your editor settings
    come back. Solve It reopens the same file to try again.
 
-`Obsidian Artifacts: End LeetCode Challenge` (or clicking the countdown in the
+`MD Artifacts: End LeetCode Challenge` (or clicking the countdown in the
 status bar) abandons a run and restores your settings.
 
 ## Practice mode

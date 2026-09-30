@@ -8,7 +8,7 @@ import { parseMavenSpec } from './lib-spec.helpers.js';
 export const JARS_SUBDIR = 'jars';
 
 /** Coordinates of the generated project itself. Constants, never artifact-derived. */
-const SELF = { groupId: 'dev.obsidianartifacts', artifactId: 'leet-libenv', version: '0.0.0' };
+const SELF = { groupId: 'dev.mdartifacts', artifactId: 'leet-libenv', version: '0.0.0' };
 
 /**
  * One `<dependency>` element, every value escaped.

@@ -16,7 +16,7 @@ export interface PickedExercise {
  * Validates the vault, lets the user pick a `.md` file under the resolved
  * exercises directory, and parses it.
  *
- * The single entry point for "open an exercise" — both the `obsidian-leetcode.open`
+ * The single entry point for "open an exercise" — both the `md-leetcode.open`
  * command (palette / view-title button) and the sidebar view's empty-state button
  * call this so the two triggers can never drift out of sync. The exercises
  * directory is resolved via `getExercisesSubdir` **at open time** (not cached
